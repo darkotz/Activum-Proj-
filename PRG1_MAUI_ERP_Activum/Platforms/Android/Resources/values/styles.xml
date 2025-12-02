@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<resources>
+    <style name="Maui.MainTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Blockera dynamiska färger -->
+        <item name="android:forceDarkAllowed">false</item>
+        <item name="material3:enableEdgeToEdge">false</item>
+
+        <!-- Din statusbarfärg -->
+        <item name="android:statusBarColor">#134f5c</item>
+        <item name="android:navigationBarColor">#134f5c</item>
+
+        <!-- Gör texten vit -->
+        <item name="android:windowLightStatusBar">false</item>
+    </style>
+</resources>

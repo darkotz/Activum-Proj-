@@ -1,0 +1,61 @@
+# Visual Studio
+.vs/
+*.user
+*.userosscache
+*.suo
+*.cache
+*.db
+
+# Build results
+bin/
+obj/
+out/
+AppPackages/
+BundleArtifacts/
+TestResults/
+
+# MAUI-specific build artifacts
+**/platforms/android/*/obj/
+**/platforms/android/*/bin/
+**/platforms/ios/*/obj/
+**/platforms/ios/*/bin/
+
+# IDE
+*.ide
+.idea/
+*.iml
+
+# OS-generated files
+Thumbs.db
+ehthumbs.db
+.DS_Store
+*.swp
+*.swo
+
+# NuGet
+packages/
+*.nupkg
+*.nuget.props
+*.nuget.targets
+project.lock.json
+
+# Logs
+*.log
+
+# User-specific files
+*.local.json
+
+# Tools
+tools/**
+!.config/
+!tools/*.ps1
+
+# Security / secrets (om du har)
+secrets.json
+*.pfx
+*.key
+*.snk
+
+# Publish
+publish/
+artifacts/
