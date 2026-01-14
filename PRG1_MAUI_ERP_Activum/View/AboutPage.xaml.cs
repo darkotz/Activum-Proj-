@@ -5,5 +5,10 @@ public partial class AboutPage : ContentPage
 	public AboutPage()
 	{
 		InitializeComponent();
+		MacrosoftSida();
 	}
+    private void MacrosoftSida()
+    {
+		   
+    }
 }
