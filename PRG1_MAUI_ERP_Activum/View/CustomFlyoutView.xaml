@@ -96,6 +96,16 @@
                            Text="Verktyg"
                            FontSize="20"
                            TextColor="White"/>
+
+                    <Label x:Name="Arrow"
+                        Grid.Column="2"
+                        Text="▶"
+                        FontSize="20"
+                      TextColor="MediumPurple"
+                       HorizontalOptions="CenterAndExpand"
+                         VerticalOptions="Center">
+                    </Label>
+
                 </Grid>
 
                 <!-- Undermeny, under verktyg -->
@@ -104,6 +114,7 @@
                         Spacing="12"
                         IsVisible="False"
                         Margin="20,0,0,0">
+                    
 
                     <!-- Kalkylator -->
                     <Grid
@@ -116,6 +127,7 @@
                                 CommandParameter="CalculatorPage" />
                         </Grid.GestureRecognizers>
 
+                       
                         <Image
                                 Source="calculator_white.png"
                                 WidthRequest="16"
