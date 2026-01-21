@@ -3,7 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PRG1_MAUI_ERP_Activum.View.PerDiemPage"
              Title="Traktamenten">
-    <VerticalStackLayout>
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="15">
         <Label 
             Padding="20"
             Text="Traktamenten"
@@ -11,5 +12,34 @@
             SemanticProperties.HeadingLevel="Level1"
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
+
+        <Label Text="StartDatum"></Label>
+        <DatePicker x:Name="StartDatePicker"></DatePicker>
+
+        <Label Text="SlutDatum"></Label>
+        <DatePicker x:Name="EndDatePicker"></DatePicker>
+
+        <Label Text="Typ av resa" />
+
+        <RadioButton 
+        Content="Inrikes (Sverige)" 
+        GroupName="TravelType"
+        IsChecked="True" />
+
+        <RadioButton 
+        Content="Utrikes" 
+        GroupName="TravelType" />
+
+        <Button 
+        Text="Beräkna"
+        Clicked="OnCalculateClicked" />
+
+        <Label 
+        x:Name="ResultLabel"
+        Text=""
+        FontSize="18"
+        FontAttributes="Bold"
+        TextColor="Green" />
     </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>
