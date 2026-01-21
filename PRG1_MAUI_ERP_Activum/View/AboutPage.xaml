@@ -16,16 +16,16 @@
 
 
 
-            <Text="Macrosoft är ett modernt försäkringsbolag som kombinerar trygghet, innovation och långsiktigt ansvar. Vårt mål är att göra försäkring enkelt, transparent och tillgängligt för både privatpersoner och företag.
+            <Label Text="Macrosoft är ett modernt försäkringsbolag som kombinerar trygghet, innovation och långsiktigt ansvar. Vårt mål är att göra försäkring enkelt, transparent och tillgängligt för både privatpersoner och företag.
 Med fokus på digitala lösningar och kundnära service utvecklar vi försäkringar som anpassar sig efter verkliga behov. Vi tror på tydliga villkor, snabba processer och personlig support – utan onödigt krångel.
 Bakom Macrosoft står ett engagerat team med erfarenhet inom försäkring, teknik och riskhantering. Tillsammans arbetar vi för att skapa hållbara försäkringslösningar som ger våra kunder trygghet i vardagen och stabilitet inför framtiden.
 Macrosoft är inte bara ett försäkringsbolag – vi är en pålitlig partner när det oväntade händer."
                 HorizontalOptions="Center"
                VerticalOptions="Center"
              FontSize="Small"
-               Padding="10">
+               Padding="10" />
 
-                <Image Source="instagram_svgrepo_com.png" WidthRequest="32" HeightRequest="32"></Image>
+            <Image Source="instagram_svgrepo_com.png" WidthRequest="32" HeightRequest="32"></Image>
 
         </VerticalStackLayout>
     </ScrollView>

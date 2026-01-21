@@ -2,14 +2,71 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PRG1_MAUI_ERP_Activum.View.SalaryPage"
-             Title="Lön &amp; Bonus">
-    <VerticalStackLayout>
-        <Label
-            Padding="20"
-            Text="Lön &amp; Bonus"
-            Style="{StaticResource Headline}"
-            SemanticProperties.HeadingLevel="Level1"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+             Title="Lön">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="16">
+
+            <Label Text="Löneberäkning"
+                   FontSize="26"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center" />
+
+            <Frame Padding="15" CornerRadius="12">
+                <VerticalStackLayout Spacing="10">
+
+                    <Label Text="Inmatning"
+                           FontAttributes="Bold"
+                           FontSize="18" />
+
+                    <Label Text="Månadens försäljning (kr)" />
+                    <Entry x:Name="SalesEntry"
+                           Placeholder="t.ex. 50000"
+                           Keyboard="Numeric" />
+
+                    <Label Text="Tidigare månadslöner (valfritt)"
+                           FontSize="12" />
+                    <Entry x:Name="PreviousSalariesEntry"
+                           Placeholder="26000,27000,28000" />
+
+                </VerticalStackLayout>
+            </Frame>
+
+            <Button Text="Beräkna lön"
+                    CornerRadius="12"
+                    FontAttributes="Bold"
+                    HeightRequest="50"
+                    Clicked="OnCalculateSalaryClicked" />
+
+
+            <Frame Padding="15" CornerRadius="12">
+                <VerticalStackLayout Spacing="8">
+
+                    <Label Text="Resultat"
+                           FontAttributes="Bold"
+                           FontSize="18" />
+
+                    <Label x:Name="ProvisionLabel"
+                           Text="Provision: -" />
+
+                    <Label x:Name="GrossSalaryLabel"
+                           Text="Bruttolön: -" />
+
+                    <Label x:Name="TaxLabel"
+                           Text="Skatt: -" />
+
+                    <Label x:Name="NetSalaryLabel"
+                           Text="Nettolön: -"
+                           FontAttributes="Bold" />
+
+                    <Label x:Name="VacationPayLabel"
+                           Text="Semesterlön (snitt): -"
+                           TextColor="Green"
+                           FontAttributes="Bold" />
+
+                </VerticalStackLayout>
+            </Frame>
+
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>
