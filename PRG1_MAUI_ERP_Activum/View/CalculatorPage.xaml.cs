@@ -18,7 +18,7 @@ public partial class CalculatorPage : ContentPage
         var button = (Button)sender;
         if (button.Text == ",")
         {
-            if (!expression.EndsWith("."))
+            if (!GetLastNumber().Contains("."))
                 expression += ".";
         }
         else
@@ -28,11 +28,7 @@ public partial class CalculatorPage : ContentPage
 
         EntryCalculations.Text = expression;
 
-        operand = double.Parse(
-            GetLastNumber(),
-            System.Globalization.CultureInfo.InvariantCulture
-        );
-
+        double.TryParse(GetLastNumber(), out operand);
 
     }
 
@@ -40,10 +36,10 @@ public partial class CalculatorPage : ContentPage
     {
         var button = (Button)sender;
 
-        if (accumulator == 0)
-            accumulator = operand;
-        else
+        if (operation != "")
             Calculate();
+        else
+            accumulator = operand;
 
         operation = button.Text;
 
@@ -60,6 +56,22 @@ public partial class CalculatorPage : ContentPage
         Calculate();
         expression += " =";
          EntryCalculations.Text = expression;
+
+        operation = "";
+        expression = "";
+    }
+
+     private void PercentageButton(object sender, EventArgs e)
+    {
+        operand /= 100;
+
+        if (operation == "")
+            accumulator = operand;
+
+        expression = expression.TrimEnd() + "%";
+        EntryCalculations.Text = expression;
+        EntryResult.Text = operand.ToString();
+
     }
     public void Calculate()
     {
@@ -86,41 +98,39 @@ public partial class CalculatorPage : ContentPage
                 break;
         }
 
-        EntryResult.Text = accumulator.ToString(System.Globalization.CultureInfo.InvariantCulture);
+        EntryResult.Text = accumulator.ToString();
         operand = 0;
     }
 
     private void ClearButton(object sender, EventArgs e)
     {
         EntryCalculations.Text = "";
-        EntryResult.Text = "";
-        accumulator = 0;
         operand = 0;
+        expression = "";
+        operation = "";
     }
     private void ClearCloneButton(object sender, EventArgs e)
     {
         EntryCalculations.Text = "";
-        expression = "";
-        EntryResult.Text = "";
-
         operand = 0;
+        expression = "";
+        operation = "";
+        EntryResult.Text = "";
         accumulator = 0;
-        
     }
+    
     private void AnotherButton(object sender, EventArgs e)
     {
-        if (string.IsNullOrEmpty(EntryCalculations.Text))
+        if (string.IsNullOrEmpty(GetLastNumber()))
             return;
 
-        if (EntryCalculations.Text.StartsWith("-"))
-            EntryCalculations.Text = EntryCalculations.Text.Substring(1);
+        if (GetLastNumber().StartsWith("-"))
+            expression = expression.Replace(GetLastNumber(), GetLastNumber().Substring(1));
         else
-            EntryCalculations.Text = "-" + EntryCalculations.Text;
+            expression = expression.Replace(GetLastNumber(), "-" + GetLastNumber());
 
-        operand = double.Parse(
-            EntryCalculations.Text,
-            System.Globalization.CultureInfo.InvariantCulture
-        );
+        EntryCalculations.Text = expression;
+        double.TryParse(GetLastNumber(), out operand);
     }
     private string GetLastNumber()
     {

@@ -32,7 +32,7 @@
 
 
 
-        <Button Grid.Row="2" Grid.Column ="0" Text="%" Clicked="PercentButton"/>
+        <Button Grid.Row="2" Grid.Column ="0" Text="%" Clicked="PercentageButton"/>
         <Button Grid.Row="2" Grid.Column ="1" Text="CE" Clicked="ClearCloneButton"/>
         <Button Grid.Row="2" Grid.Column ="2" Text="C" Clicked="ClearButton"/>
         <Button Grid.Row="2" Grid.Column ="3" Text="/" Clicked="OperandButton"/>
