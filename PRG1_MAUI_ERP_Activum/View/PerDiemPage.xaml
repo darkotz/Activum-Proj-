@@ -3,13 +3,69 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PRG1_MAUI_ERP_Activum.View.PerDiemPage"
              Title="Traktamenten">
-    <VerticalStackLayout>
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="15" BackgroundColor="#e6e6e6">
         <Label 
             Padding="20"
             Text="Traktamenten"
             Style="{StaticResource Headline}"
             SemanticProperties.HeadingLevel="Level1"
             VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+            HorizontalOptions="Center"
+            TextColor="#424245"/>
+
+            <Label Text="StartDatum" TextColor="#424245"></Label>
+            <Border
+    Stroke="#424245"
+    StrokeThickness="2"
+    Background="LightGray"
+    StrokeShape="RoundRectangle 8"
+    Padding="4">
+            <DatePicker x:Name="StartDatePicker" TextColor="#424245"></DatePicker>
+            </Border>
+
+            <Label Text="SlutDatum" TextColor="#424245"></Label>
+            <Border
+    Stroke="#424245"
+    StrokeThickness="2"
+    Background="LightGray"
+    StrokeShape="RoundRectangle 8"
+    Padding="4">
+                <DatePicker x:Name="EndDatePicker" TextColor="#424245"></DatePicker>
+            </Border>
+
+            <Label Text="Typ av resa" TextColor="#424245"/>
+
+        <RadioButton 
+        Content="Inrikes (Sverige)" 
+        GroupName="TravelType"
+        IsChecked="True" 
+            TextColor="#424245"/>
+
+        <RadioButton 
+        Content="Utrikes" 
+        GroupName="TravelType"
+            TextColor="#424245"/>
+            <Border
+    Stroke="#f56300"
+    StrokeThickness="2"
+    Background="LightGray"
+    StrokeShape="RoundRectangle 8"
+    Padding="4">
+
+                <Button 
+        Text="Beräkna"
+        Clicked="OnCalculateClicked" 
+            BackgroundColor="Transparent"
+            TextColor="#f56300"/>
+            </Border>
+
+            <Label 
+        x:Name="ResultLabel"
+        Text=""
+        FontSize="18"
+        FontAttributes="Bold"
+        TextColor="#424245" />
     </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>
