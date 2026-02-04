@@ -6,58 +6,74 @@ public partial class CalculatorPage : ContentPage
 	{
 		InitializeComponent();
 	}
-
     private double accumulator = 0;
-    private double operand = 0;
     private string operation = "";
+    private double operand = 0;
+    private string expression = "";
+    
 
-    // hantering för numeriska knappar
-    private void NumberButton(object sender, EventArgs e)
+
+    private void Numberbutton(object sender, EventArgs e)
     {
-        Button button = (Button)sender;
-
-        // Bygg upp operand baserat på knapptexten (t.ex. "1", "2")
-        operand = (operand * 10) + Convert.ToDouble(button.Text);
-
-        EntryCalculations.Text += button.Text;
-        EntryResult.Text = operand.ToString();
-    }
-
-
-    // hantering för operator-knappar (+, -, *, /)
-    private void OperatorButton(object sender, EventArgs e)
-    {
-        if (operation != "") // Utför beräkning om en tidigare operation finns
+        var button = (Button)sender;
+        if (button.Text == ",")
         {
-            Calculate();
+            if (!GetLastNumber().Contains("."))
+                expression += ".";
         }
         else
         {
-            accumulator = operand; // Spara första talet i accumulator
+            expression += button.Text;
         }
 
-        operand = 0;
+        EntryCalculations.Text = expression;
 
-        Button button = (Button)sender;
+        double.TryParse(GetLastNumber(), out operand);
+
+    }
+
+    private void OperandButton(object sender, EventArgs e)
+    {
+        var button = (Button)sender;
+
+        if (operation != "")
+            Calculate();
+        else
+            accumulator = operand;
+
         operation = button.Text;
 
-        EntryCalculations.Text += $" {operation} ";
+        expression += " " + button.Text + " ";
+        EntryCalculations.Text = expression;
+        operand = 0;
     }
+
 
 
     private void EqualButton(object sender, EventArgs e)
     {
-        Calculate();
 
-        EntryResult.Text = accumulator.ToString();
-        EntryCalculations.Text = accumulator.ToString();
+        Calculate();
+        expression += " =";
+         EntryCalculations.Text = expression;
 
         operation = "";
-        operand = 0;
+        expression = "";
     }
 
+     private void PercentageButton(object sender, EventArgs e)
+    {
+        operand /= 100;
 
-    private void Calculate()
+        if (operation == "")
+            accumulator = operand;
+
+        expression = expression.TrimEnd() + "%";
+        EntryCalculations.Text = expression;
+        EntryResult.Text = operand.ToString();
+
+    }
+    public void Calculate()
     {
         switch (operation)
         {
@@ -70,43 +86,59 @@ public partial class CalculatorPage : ContentPage
             case "*":
                 accumulator *= operand;
                 break;
+
             case "/":
-                if (operand == 0) // Hantera division med noll
+
+                if (operand == 0)
                 {
-                    DisplayAlertAsync("Fel!", "Division med noll är ej tillåtet.", "OK");
-                    Clear();
+                    EntryResult.Text = ("");
                     return;
                 }
                 accumulator /= operand;
                 break;
         }
 
+        EntryResult.Text = accumulator.ToString();
         operand = 0;
     }
 
     private void ClearButton(object sender, EventArgs e)
     {
-        Clear();
-    }
-
-    private void Clear()
-    {
-        accumulator = 0;
-        operand = 0;
-        operation = "";
-
         EntryCalculations.Text = "";
-        EntryResult.Text = "0";
+        operand = 0;
+        expression = "";
+        operation = "";
     }
-
-    private void StoreInMemoryButton(object sender, EventArgs e)
+    private void ClearCloneButton(object sender, EventArgs e)
     {
-        EntryCalculations.Text = "Kommande funktion";
+        EntryCalculations.Text = "";
+        operand = 0;
+        expression = "";
+        operation = "";
+        EntryResult.Text = "";
+        accumulator = 0;
     }
-
-    private void CatchFromMemoryButton(object sender, EventArgs e)
+    
+    private void AnotherButton(object sender, EventArgs e)
     {
-        EntryCalculations.Text = "Kommande funktion";
+        if (string.IsNullOrEmpty(GetLastNumber()))
+            return;
+
+        if (GetLastNumber().StartsWith("-"))
+            expression = expression.Replace(GetLastNumber(), GetLastNumber().Substring(1));
+        else
+            expression = expression.Replace(GetLastNumber(), "-" + GetLastNumber());
+
+        EntryCalculations.Text = expression;
+        double.TryParse(GetLastNumber(), out operand);
+    }
+    private string GetLastNumber()
+    {
+        if (string.IsNullOrEmpty(expression))
+            return "0";
+
+        var parts = expression.Split(' ');
+        return parts[^1];
     }
 
 }
