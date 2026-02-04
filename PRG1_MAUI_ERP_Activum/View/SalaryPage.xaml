@@ -2,14 +2,110 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PRG1_MAUI_ERP_Activum.View.SalaryPage"
-             Title="Lön &amp; Bonus">
-    <VerticalStackLayout>
-        <Label
-            Padding="20"
-            Text="Lön &amp; Bonus"
-            Style="{StaticResource Headline}"
-            SemanticProperties.HeadingLevel="Level1"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+             Title="Lön"
+             BackgroundColor="#e6e6e6">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="18">
+
+            <Label Text="Löneberäkning"
+                   FontSize="26"
+                   FontAttributes="Bold"
+                   TextColor="#424245"
+                   HorizontalOptions="Center" />
+
+            <Frame Padding="16"
+                   CornerRadius="14"
+                   BackgroundColor="#f5f5f7"
+                   HasShadow="False">
+
+                <VerticalStackLayout Spacing="12">
+
+                    <Label Text="Inmatning"
+                           FontAttributes="Bold"
+                           FontSize="18"
+                           TextColor="#424245" />
+
+                    <Label Text="Månadens försäljning (kr)"
+                           TextColor="#6e6e73" />
+4
+                    <Border
+                        Stroke="#424245"
+                        StrokeThickness="2"
+                        Background="LightGray"
+                        StrokeShape="RoundRectangle 8"
+                        Padding="4">
+                        
+                        <Entry x:Name="SalesEntry"
+                           Keyboard="Numeric"
+                           TextColor="#424245"
+                           PlaceholderColor="#6e6e73" />
+                    </Border>
+
+                    <Label Text="Tidigare månadslöner (valfritt)"
+                           FontSize="12"
+                           TextColor="#6e6e73" />
+
+                    <Border
+                        Stroke="#424245"
+                        StrokeThickness="2"
+                        Background="LightGray"
+                        StrokeShape="RoundRectangle 8"
+                        Padding="4">
+
+                        <Entry x:Name="PreviousSalariesEntry"
+                           TextColor="#424245"
+                           PlaceholderColor="#000000" />
+                    </Border>
+
+                </VerticalStackLayout>
+            </Frame>
+
+            <Button Text="Beräkna lön"
+                    BackgroundColor="#0066cc"
+                    TextColor="White"
+                    CornerRadius="14"
+                    FontAttributes="Bold"
+                    HeightRequest="52"
+                    Clicked="OnCalculateSalaryClicked" />
+
+            <Frame Padding="16"
+                   CornerRadius="14"
+                   BackgroundColor="#f5f5f7"
+                   HasShadow="False">
+
+                <VerticalStackLayout Spacing="10">
+
+                    <Label Text="Resultat"
+                           FontAttributes="Bold"
+                           FontSize="18"
+                           TextColor="#424245" />
+
+                    <Label x:Name="ProvisionLabel"
+                           Text="Provision: -"
+                           TextColor="#424245" />
+
+                    <Label x:Name="GrossSalaryLabel"
+                           Text="Bruttolön: -"
+                           TextColor="#424245" />
+
+                    <Label x:Name="TaxLabel"
+                           Text="Skatt: -"
+                           TextColor="#424245" />
+
+                    <Label x:Name="NetSalaryLabel"
+                           Text="Nettolön: -"
+                           FontAttributes="Bold"
+                           TextColor="#424245" />
+
+                    <Label x:Name="VacationPayLabel"
+                           Text="Semesterlön (snitt): -"
+                           FontAttributes="Bold"
+                           TextColor="Green" />
+
+                </VerticalStackLayout>
+            </Frame>
+
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>
