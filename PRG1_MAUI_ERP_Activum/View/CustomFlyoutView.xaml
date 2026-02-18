@@ -85,6 +85,7 @@
                     <Grid.GestureRecognizers>
                         <TapGestureRecognizer 
                             Command="{Binding ToggleToolsCommand}" />
+                         <TapGestureRecognizer Tapped="OnVerktyg"/>
                     </Grid.GestureRecognizers>
 
                     <Image Source="tools_white.png"
@@ -96,15 +97,18 @@
                            Text="Verktyg"
                            FontSize="20"
                            TextColor="White"/>
-
+                    
                     <Label x:Name="Arrow"
+                       Text="›"
                         Grid.Column="2"
-                        Text="▶"
-                        FontSize="20"
+                        FontSize="22"
                       TextColor="MediumPurple"
                        HorizontalOptions="CenterAndExpand"
-                         VerticalOptions="Center">
-                    </Label>
+                         VerticalOptions="Center"
+                           Rotation="90"/>
+
+
+
 
                 </Grid>
 
