@@ -14,7 +14,10 @@
             HorizontalOptions="Center"
             TextColor="#424245"/>
 
-            <Label Text="StartDatum" TextColor="#424245"></Label>
+
+
+                <Label Text="StartDatum" TextColor="#424245"></Label>
+            
             <Border
     Stroke="#424245"
     StrokeThickness="2"
@@ -34,18 +37,32 @@
                 <DatePicker x:Name="EndDatePicker" TextColor="#424245"></DatePicker>
             </Border>
 
-            <Label Text="Typ av resa" TextColor="#424245"/>
+            <Border
+    Padding="16"
+    Stroke="#424245"
+    StrokeThickness="2"
+    Background="#f5f5f7"
+    StrokeShape="RoundRectangle 14">
 
-        <RadioButton 
+                <VerticalStackLayout Spacing="8">
+
+                    <Label Text="Typ av resa" TextColor="#424245"/>
+
+                    <RadioButton 
         Content="Inrikes (Sverige)" 
         GroupName="TravelType"
         IsChecked="True" 
             TextColor="#424245"/>
 
-        <RadioButton 
+                    <RadioButton 
         Content="Utrikes" 
         GroupName="TravelType"
             TextColor="#424245"/>
+
+                </VerticalStackLayout>
+
+            </Border>
+
             <Border
     Stroke="#f56300"
     StrokeThickness="2"

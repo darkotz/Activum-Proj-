@@ -4,7 +4,7 @@
              x:Class="PRG1_MAUI_ERP_Activum.View.AboutPage"
              Title="Om Macrosoft">
         <ScrollView>
-        <VerticalStackLayout>
+        <VerticalStackLayout BackgroundColor="#e6e6e6">
 
             <Label
             Padding="20"
@@ -12,7 +12,8 @@
             Style="{StaticResource Headline}"
             SemanticProperties.HeadingLevel="Level1"
             VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+            HorizontalOptions="Center"
+                TextColor="black"/>
 
 
 
@@ -23,7 +24,8 @@ Macrosoft är inte bara ett försäkringsbolag – vi är en pålitlig partner n
                 HorizontalOptions="Center"
                VerticalOptions="Center"
              FontSize="Small"
-               Padding="10" />
+               Padding="10"
+                   TextColor="black"/>
 
             <Image Source="instagram_svgrepo_com.png" WidthRequest="32" HeightRequest="32"></Image>
 
