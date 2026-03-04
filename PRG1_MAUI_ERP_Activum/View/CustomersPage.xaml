@@ -1,15 +1,36 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+<ContentPage x:Class="PRG1_MAUI_ERP_Activum.View.CustomersPage"
+             xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="PRG1_MAUI_ERP_Activum.View.CustomersPage"
              Title="Kunder">
-    <VerticalStackLayout>
+    <VerticalStackLayout Padding="20">
         <Label
-            Padding="20"
             Text="Kunder"
-            Style="{StaticResource Headline}"
-            SemanticProperties.HeadingLevel="Level1"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+            FontSize="24"
+            HorizontalOptions="Center"/>
+        <CollectionView x:Name="CustomersCollection"
+                        SelectionMode="Single">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame BorderColor="LightGray" Padding="10" Margin="5">
+                        <StackLayout>
+                            <Label Text="{Binding FirstName}" FontSize="18" FontAttributes="Bold"/>
+                            <Label Text="{Binding Email}" FontSize="14" TextColor="Gray"/>
+                        </StackLayout>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        
+        </CollectionView>
+
+        <Button Text="Lägga till en kund"
+                Clicked="OnAddCustomerClicked"/>
+
+        <Button Text="Ta bort"
+                Clicked="OnDeleteCustomerClicked"/>
+
+        <Button Text="Visa försäkringar"
+                Clicked="OnShowInsurancesClicked"/>
+
     </VerticalStackLayout>
 </ContentPage>

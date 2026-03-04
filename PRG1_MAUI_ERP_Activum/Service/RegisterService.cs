@@ -35,5 +35,13 @@ namespace PRG1_MAUI_ERP_Activum.Services
         {
             customer.InsuranceId.Remove(insurance.Id);
         }
+
+        public void AddCustomer(Customer customer) {
+
+            if (!Customers.Any(c => c.Email == customer.Email))
+                Customers.Add(customer);
+        }
+
+        public void RemoveCustomer(Customer customer) => Customers.Remove(customer);
     }
 }
