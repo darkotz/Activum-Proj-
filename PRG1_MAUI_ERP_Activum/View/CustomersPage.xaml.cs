@@ -13,10 +13,14 @@ public partial class CustomersPage : ContentPage
         CustomersCollection.ItemsSource = RegisterService.Instance.Customers;
     }
 
-    private void OnAddCustomerClicked(object sender, EventArgs e)
+    [Obsolete]
+    private async void OnAddCustomerClicked(object sender, EventArgs e)
     {
-        var customer = new Customer("John", "Doe", "john@mail.com", "123456");
-        RegisterService.Instance.AddCustomer(customer);
+
+        await Navigation.PushModalAsync(new AddCustomerPopup());
+
+
+
     }
 
     private void OnDeleteCustomerClicked(object sender, EventArgs e)
@@ -27,6 +31,7 @@ public partial class CustomersPage : ContentPage
         }
     }
 
+    [Obsolete]
     private async void OnShowInsurancesClicked(object sender, EventArgs e)
     {
         if (CustomersCollection.SelectedItem is Customer selected)

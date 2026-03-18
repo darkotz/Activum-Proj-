@@ -3,7 +3,7 @@
              xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              Title="Kunder">
-    <VerticalStackLayout Padding="20">
+    <VerticalStackLayout Padding="20" VerticalOptions="Center">
         <Label
             Text="Kunder"
             FontSize="24"
@@ -16,6 +16,7 @@
                         <StackLayout>
                             <Label Text="{Binding FirstName}" FontSize="18" FontAttributes="Bold"/>
                             <Label Text="{Binding Email}" FontSize="14" TextColor="Gray"/>
+         
                         </StackLayout>
                     </Frame>
                 </DataTemplate>
@@ -23,14 +24,17 @@
         
         </CollectionView>
 
-        <Button Text="Lägga till en kund"
-                Clicked="OnAddCustomerClicked"/>
 
-        <Button Text="Ta bort"
-                Clicked="OnDeleteCustomerClicked"/>
+        <HorizontalStackLayout Spacing="5">
+            <Button Text="Lägga till en kund"
+            Clicked="OnAddCustomerClicked"/>
 
-        <Button Text="Visa försäkringar"
-                Clicked="OnShowInsurancesClicked"/>
+            <Button Text="Ta bort"
+            Clicked="OnDeleteCustomerClicked"/>
+
+            <Button Text="Visa försäkringar"
+            Clicked="OnShowInsurancesClicked"/>
+        </HorizontalStackLayout>
 
     </VerticalStackLayout>
 </ContentPage>
