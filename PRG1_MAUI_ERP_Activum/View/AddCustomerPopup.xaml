@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PRG1_MAUI_ERP_Activum.View.AddCustomerPopup"
+             Title="NewCustomer">
+    <VerticalStackLayout Padding="20" Spacing="10">
+        <Label Text="Ny kund" FontSize="24" HorizontalOptions="Center"/>
+
+        <Entry x:Name="FirstNameEntry" Placeholder="Namn"/>
+        <Entry x:Name="LastNameEntry" Placeholder="Efternamn"/>
+        <Entry x:Name="EmailEntry" Placeholder="Email"/>
+        <Entry x:Name="PhoneEntry" Placeholder="Telefonnummer"/>
+
+        <Label Text="Försäkringar" FontAttributes="Bold"/>
+
+        <CheckBox x:Name="SjukCheck"/>
+        <Label Text="Sjukförsäkring - 249kr/månad"/>
+
+        <CheckBox x:Name="BilCheck"/>
+        <Label Text="Bilförsäkring - 149kr/månad"/>
+
+        <CheckBox x:Name="PetCheck"/>
+        <Label Text="Husdjursförsäkring - 49kr/månad"/>
+
+        <Button Text="Spara"
+                Clicked="OnSaveClicked"/>
+
+    </VerticalStackLayout>
+</ContentPage>
