@@ -3,14 +3,76 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PRG1_MAUI_ERP_Activum.View.InsurancePage"
              Title="Försäkringar">
-    <VerticalStackLayout VerticalOptions="Center">
-        <Label
-            Padding="20"
-            Text="Försäkringar"
-            Style="{StaticResource Headline}"
-            SemanticProperties.HeadingLevel="Level1"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-        
-    </VerticalStackLayout>
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="20">
+            <Label 
+                Text="Våra Försäkringar"
+                FontSize="28"
+                FontAttributes="Bold"
+                TextColor="White" />
+
+            <Frame CornerRadius="15" Padding="15" BackgroundColor="White" HasShadow="True">
+                <VerticalStackLayout Spacing="10">
+                    <Label 
+                        Text="🚗 Bilförsäkring"
+                        FontSize="20"
+                        FontAttributes="Bold"
+                        TextColor="#111827" />
+
+                    <Label 
+                        Text="Skydda din bil mot olyckor, skador och stöld. Vår bilförsäkring ger dig trygghet på vägen med snabb hjälp vid behov."
+                        FontSize="14"
+                        TextColor="#4B5563" />
+
+                    <Button 
+                        Text="Läs mer"
+                        BackgroundColor="#3B82F6"
+                        TextColor="White"
+                        CornerRadius="10" />
+                </VerticalStackLayout>
+            </Frame>
+
+            <Frame CornerRadius="15" Padding="15" BackgroundColor="White" HasShadow="True">
+                <VerticalStackLayout Spacing="10">
+                    <Label 
+                        Text="🐾 Husdjursförsäkring"
+                        FontSize="20"
+                        FontAttributes="Bold"
+                        TextColor="#111827" />
+
+                    <Label 
+                        Text="Ge ditt husdjur den bästa vården. Försäkringen täcker veterinärkostnader och hjälper dig när din vän behöver det som mest."
+                        FontSize="14"
+                        TextColor="#4B5563" />
+
+                    <Button 
+                        Text="Läs mer"
+                        BackgroundColor="#10B981"
+                        TextColor="White"
+                        CornerRadius="10" />
+                </VerticalStackLayout>
+            </Frame>
+            <Frame CornerRadius="15" Padding="15" BackgroundColor="White" HasShadow="True">
+                <VerticalStackLayout Spacing="10">
+                    <Label 
+                        Text="🏥 Sjukförsäkring"
+                        FontSize="20"
+                        FontAttributes="Bold"
+                        TextColor="#111827" />
+
+                    <Label 
+                        Text="Få snabb tillgång till vård och ekonomiskt skydd vid sjukdom. En trygg lösning för dig och din familj."
+                        FontSize="14"
+                        TextColor="#4B5563" />
+
+                    <Button 
+                        Text="Läs mer"
+                        BackgroundColor="#EF4444"
+                        TextColor="White"
+                        CornerRadius="10" />
+                </VerticalStackLayout>
+            </Frame>
+
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>
