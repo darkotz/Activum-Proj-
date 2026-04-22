@@ -79,14 +79,12 @@
                            TextColor="White"/>
                 </Grid>
 
-                <!-- Verktyg. Ska inte gå att klicka på -->
                 <Grid ColumnDefinitions="40,*"
                       Padding="5">
                     <Grid.GestureRecognizers>
                         <TapGestureRecognizer 
                             Command="{Binding ToggleToolsCommand}" />
-                         <TapGestureRecognizer Tapped="OnVerktyg"/>
-                    </Grid.GestureRecognizers>
+                         </Grid.GestureRecognizers>
 
                     <Image Source="tools_white.png"
                            WidthRequest="17"
@@ -97,19 +95,17 @@
                            Text="Verktyg"
                            FontSize="20"
                            TextColor="White"/>
-                    
+
                     <Label x:Name="Arrow"
                        Text="›"
                         Grid.Column="2"
                         FontSize="22"
-                      TextColor="MediumPurple"
-                       HorizontalOptions="CenterAndExpand"
-                         VerticalOptions="Center"
-                           Rotation="90"/>
-
-
-
-
+                        TextColor="MediumPurple"
+                        HorizontalOptions="CenterAndExpand"
+                        VerticalOptions="Center"
+                           Rotation="180"/>
+                    
+                    
                 </Grid>
 
                 <!-- Undermeny, under verktyg -->

@@ -3,13 +3,184 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PRG1_MAUI_ERP_Activum.View.SupportPage"
              Title="Hjälp &amp; Support">
-    <VerticalStackLayout>
-        <Label
-            Padding="20"
-            Text="Hjälp &amp; Support"
-            Style="{StaticResource Headline}"
-            SemanticProperties.HeadingLevel="Level1"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+    <ScrollView>
+        <VerticalStackLayout Spacing="10" Padding="20" >
+                
+                <Label 
+                Text="Hjälp"
+                FontSize="28"
+                FontAttributes="Bold"
+                HorizontalOptions="Center"
+                TextColor="#424245"
+                Margin="10"    
+                
+                    
+                />
+
+
+
+            <Label Text="Hur skapar jag en försäkring?" TextColor="#424245"
+               
+                   BindingContext="{x:Reference Ans1}">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnQuestionTapped" ></TapGestureRecognizer>
+                </Label.GestureRecognizers>
+            </Label>
+
+            <Label x:Name="Ans1" Text="Tryck på 'Skapa försäkring' och fyll i dina uppgifter."
+               IsVisible="False"
+                   TextColor="#424245"
+                   FontAttributes="Italic"/>
+
+
+            <Label Text="Hur ändrar jag mina uppgifter?" TextColor="#424245"
+               BindingContext="{x:Reference Ans2}"
+                   >
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnQuestionTapped" ></TapGestureRecognizer>
+                </Label.GestureRecognizers>
+            </Label>
+
+            <Label x:Name="Ans2" Text="Gå till profil och tryck på redigera" TextColor="#424245"
+               IsVisible="False"
+                   FontAttributes="Italic"/>
+
+
+            <Label Text="Hur kontaktar jag för support?" TextColor="#424245"
+               BindingContext="{x:Reference Ans3}">
+            <Label.GestureRecognizers>
+
+                    <TapGestureRecognizer Tapped="OnQuestionTapped" ></TapGestureRecognizer>
+            </Label.GestureRecognizers>
+        </Label>
+
+            <Label x:Name="Ans3" Text="Ring oss" TextColor="#424245"
+               IsVisible="False"
+                   FontAttributes="Italic"/>
+
+            <Label Text="Hur återställer jag lösenord?"  BindingContext="{x:Reference Ans4}"
+       >
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnQuestionTapped"/>
+                </Label.GestureRecognizers>
+            </Label>
+
+            <Label x:Name="Ans4" Text ="Tryck på 'Glömt lösenord'" TextColor="#424245"
+             IsVisible="False"
+                   FontAttributes="Italic"/>
+
+
+            <Label Text="Kan jag rapportera missförhållanden anonymt?" TextColor="#424245" BindingContext="{x:Reference Ans5}">
+
+                <Label.GestureRecognizers>
+                <TapGestureRecognizer Tapped="OnQuestionTapped"></TapGestureRecognizer>
+                 </Label.GestureRecognizers>
+            </Label>
+
+            <Label x:Name="Ans5" Text="Ja, du kan rapportera anonymt via formuläret" TextColor="#424245"
+            IsVisible="False"
+                   FontAttributes="Italic"
+ />
+
+
+
+
+            <Label Text="Kontakt nummer"
+                           TextColor="#424245"
+                           FontSize="20"
+                           FontAttributes="Bold"
+                        />
+
+                    <Button 
+                        Text="000000"
+                        BackgroundColor="#424245"
+                        />
+                    <Label Text="Rapportera problem"
+                           TextColor="#424245"
+                           FontSize="20"
+                           FontAttributes="Bold"/>
+
+            <Button 
+                        BackgroundColor="#424245"
+                        Text="@email "
+                        />
+
+            <Label Text="Lösenord"
+                           FontSize="20"
+                   TextColor="#424245"
+                           FontAttributes="Bold"/>
+
+            <Button 
+                        BackgroundColor="#424245"
+                        Text="Byt Lösenord"
+                        />
+            
+            <Grid Padding="10"
+              ColumnSpacing="30"
+              RowSpacing="30"
+                  >
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+              
+                <VerticalStackLayout Grid.Column="0" Spacing="10">
+                    <Label Text="Utbetalningsdatum och handläggningstider" TextColor="#424245"
+                       FontSize="20"
+                       FontAttributes="Bold"/>
+
+                    <Label Text="LEARN MORE" TextColor="#f56300">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnLearnMore"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+                    
+
+                    <Label Text="Om Försäkringskassan" TextColor="#424245"
+                            FontSize="20"
+                    FontAttributes="Bold"/>
+
+                    <Label Text="LEARN MORE" TextColor="#f56300">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnLearnMore"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+                    
+                </VerticalStackLayout>
+
+                <VerticalStackLayout Grid.Column="1" Spacing="10">
+                    <Label Text="Behandling av personuppgifters" TextColor="#424245"
+                       FontSize="20"
+                       FontAttributes="Bold"/>
+
+                    <Label Text="LEARN MORE" TextColor="#f56300">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnLearnMore"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+
+                    <Label Text="Öppetider" TextColor="#424245"
+                          FontAttributes="Bold"
+                       FontSize="20"/>
+
+
+
+                    <Label Text="LEARN MORE" TextColor="#f56300">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnShowOpeningHours"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+                    <VerticalStackLayout 
+                        x:Name="ÖppetiderContainer" IsVisible="False" Spacing="5" Margin="10,0,0,0">
+                       
+                    </VerticalStackLayout>
+
+                </VerticalStackLayout>
+            </Grid>
+           
+
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>
