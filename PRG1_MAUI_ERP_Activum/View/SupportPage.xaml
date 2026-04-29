@@ -92,7 +92,7 @@
                         />
 
                     <Button 
-                        Text="000000"
+                        Text="000"
                         BackgroundColor="#424245"
                         />
                     <Label Text="Rapportera problem"
